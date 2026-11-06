@@ -1,0 +1,90 @@
+{
+  "name": "sanity-plugin-firearm-fields",
+  "version": "0.1.0",
+  "description": "Sanity Studio fields for gun, ammo and outdoor stores: a caliber picker that knows 293 calibers and their spellings, and product specs (brand, model, caliber, capacity, barrel length, rounds per box, cost per round) filled from the product title.",
+  "keywords": [
+    "ammo",
+    "ammunition",
+    "caliber",
+    "cost-per-round",
+    "ecommerce",
+    "firearms",
+    "guns",
+    "gunsnprices",
+    "sanity",
+    "sanity-plugin",
+    "sanity-studio"
+  ],
+  "homepage": "https://gunsnprices.com",
+  "bugs": {
+    "url": "https://github.com/gunsnprices/sanity-plugin-firearm-fields/issues"
+  },
+  "license": "MIT",
+  "author": "GunsNPrices <app@gunsnprices.com> (https://gunsnprices.com)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gunsnprices/sanity-plugin-firearm-fields.git"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "type": "module",
+  "sideEffects": false,
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "source": "./src/index.ts",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "publishConfig": {
+    "exports": {
+      ".": "./dist/index.js",
+      "./package.json": "./package.json"
+    }
+  },
+  "scripts": {
+    "build": "plugin-kit verify-package --silent && pkg-utils build --strict --check --clean",
+    "format": "oxfmt",
+    "link-watch": "plugin-kit link-watch",
+    "lint": "oxlint",
+    "prepublishOnly": "npm run build",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "watch": "pkg-utils watch --strict"
+  },
+  "dependencies": {
+    "@sanity/ui": "^3.2 || ^4",
+    "gunsnprices": "^0.1.2"
+  },
+  "devDependencies": {
+    "@sanity/pkg-utils": "^13.0.16",
+    "@sanity/plugin-kit": "^10.1.0",
+    "@testing-library/dom": "^10.4.2",
+    "@testing-library/react": "^16.3.3",
+    "@testing-library/user-event": "^14.6.8",
+    "@types/react": "^19.3.0",
+    "jsdom": "^29.1.1",
+    "oxfmt": "^0.73.0",
+    "oxlint": "^1.92.0",
+    "oxlint-tsgolint": "^7.0.2006",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "sanity": "^6.22.0",
+    "styled-components": "^6.6.0",
+    "typescript": "^6.0.3",
+    "vitest": "^5.1.0"
+  },
+  "peerDependencies": {
+    "react": "^19.2",
+    "sanity": "^5 || ^6"
+  },
+  "browserslist": "extends @sanity/browserslist-config",
+  "engines": {
+    "node": ">=20.19 <22 || >=22.12"
+  }
+}
